@@ -4,20 +4,16 @@ export const selectionSort = (arr: number[]): number[] => {
     for (let i = 1; i < len - 1; i++) {
         let temp: number = arr[i];
         let left: number = i - 1;
-        let gap: number = i;
         while(left >= 0) {
-            
             if(temp < arr[left]) {
                 //move the value at left to the right
                 arr[left + 1] = arr[left];
-                gap = left;
                 left--;
-                
             } else {
                 break;
             }
         }
-        arr[gap] = temp;
+        arr[left + 1] = temp;
     }
     return arr;
 }
