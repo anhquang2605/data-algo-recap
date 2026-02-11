@@ -17,7 +17,7 @@ export const selectionSort = (arr: number[]): number[] => {
                 break;
             }
         }
-
+        arr[gap] = temp;
     }
     return arr;
 }
