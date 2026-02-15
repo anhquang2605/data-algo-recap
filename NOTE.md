@@ -1,1 +1,2 @@
 1. When comes to duplicate detection, try to use hash table, store values in arr as key, the key's value is then true or 1
+2. stack and queue: ultilize "temporary data" in "order" to be efficient in data storage
