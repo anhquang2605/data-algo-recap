@@ -42,8 +42,47 @@ class Stack {
     }
 }
 
-const stack = new Stack();
-stack.createStackFromArr([1, 2, 3, 4, 5]);
-stack.print();
-stack.pop();
-stack.print();
+const linterCheck = (str) => {
+    const allowedOpenChars = {
+       '(': ')',
+       '{': '}',
+       '[': ']'
+    }
+    const allowedCloseChars = {
+        ')': '(',
+        '}': '{',
+        ']': '['
+    }
+    const stack = new Stack();
+    for (let i = 0; i < str.length; i++) {
+        if(i === 0) { 
+            if(allowedCloseChars[str[i]]) {
+                return str[i] + " is not allowed at the beginning of the string";
+            } 
+        }
+        if(allowedOpenChars[str[i]]) { //if the character is an opening character, push it to the stack
+            stack.push(str[i]);
+            continue;
+        }
+        if(allowedCloseChars[str[i]]) {// checking if the character is a closing character, if it is, check if the last character in the stack is the corresponding opening character
+            if(stack.isEmpty()) {
+                return str[i] + " is not allowed if no opening character is present";
+            }
+            const last = stack.read();
+            if(last !== allowedCloseChars[str[i]]) {
+                return str[i] + " does not match the last opening character";
+            } else {
+                stack.pop();
+            }
+        }
+    }
+    if(stack.isEmpty()) {
+        return "String is valid";
+    } else {
+        return "String is not valid because there are still opening characters that are not closed " + stack.stack.join(", ");
+        
+    }
+}
+
+const str = "{{[()]}";
+console.log(linterCheck(str));
