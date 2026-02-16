@@ -55,22 +55,23 @@ const linterCheck = (str) => {
     }
     const stack = new Stack();
     for (let i = 0; i < str.length; i++) {
+        let currentChar = str[i];
         if(i === 0) { 
-            if(allowedCloseChars[str[i]]) {
-                return str[i] + " is not allowed at the beginning of the string";
+            if(allowedCloseChars[currentChar]) {
+                return currentChar + " is not allowed at the beginning of the string";
             } 
         }
-        if(allowedOpenChars[str[i]]) { //if the character is an opening character, push it to the stack
-            stack.push(str[i]);
+        if(allowedOpenChars[currentChar]) { //if the character is an opening character, push it to the stack
+            stack.push(currentChar);
             continue;
         }
-        if(allowedCloseChars[str[i]]) {// checking if the character is a closing character, if it is, check if the last character in the stack is the corresponding opening character
+        if(allowedCloseChars[currentChar]) {// checking if the character is a closing character, if it is, check if the last character in the stack is the corresponding opening character
             if(stack.isEmpty()) {
-                return str[i] + " is not allowed if no opening character is present";
-            }
+                return currentChar + " is not allowed if no opening character is present";
+            } 
             const last = stack.read();
-            if(last !== allowedCloseChars[str[i]]) {
-                return str[i] + " does not match the last opening character";
+            if(last !== allowedCloseChars[currentChar]) {
+                return currentChar + " does not match the last opening character";
             } else {
                 stack.pop();
             }
