@@ -1,5 +1,5 @@
 //define stack class
-class Stack {
+export class Stack {
     constructor() {
         this.stack = [];
     }

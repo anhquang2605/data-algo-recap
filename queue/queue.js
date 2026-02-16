@@ -1,3 +1,4 @@
+import { Stack } from "../stack/stack.js";
 class Queue {
     constructor() {
         this.queue = [];
@@ -30,3 +31,18 @@ class Queue {
         console.log(this.queue);
     }
 }
+
+const revereseString = (str) => {
+    theStack = new Stack();
+    for (let i = 0; i < str.length; i++) {
+        theStack.push(str[i]);
+    }
+    let reversed = "";
+    while (!theStack.isEmpty()) {
+        reversed += theStack.pop();
+    }
+    return reversed;
+}
+
+const string = "Hello World!";
+console.log(revereseString(string));
