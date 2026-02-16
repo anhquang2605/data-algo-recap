@@ -66,7 +66,7 @@ const linterCheck = (str) => {
             } 
             const last = stack.read();
             if(last !== allowedCloseChars[currentChar]) {
-                return currentChar + " does not match the last opening character";
+                return currentChar + " does not have a corresponding opening character";
             } else {
                 stack.pop();
             }
