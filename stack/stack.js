@@ -56,11 +56,6 @@ const linterCheck = (str) => {
     const stack = new Stack();
     for (let i = 0; i < str.length; i++) {
         let currentChar = str[i];
-        if(i === 0) { 
-            if(allowedCloseChars[currentChar]) {
-                return currentChar + " is not allowed at the beginning of the string";
-            } 
-        }
         if(allowedOpenChars[currentChar]) { //if the character is an opening character, push it to the stack
             stack.push(currentChar);
             continue;
