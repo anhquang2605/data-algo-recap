@@ -14,4 +14,18 @@ const factorial = (num) => {
     }
 }
 
-countdown(10);
+const printallNumber = (arr ) => {
+    for(let i = 0; i < arr.length; i++){
+        if(Array.isArray(arr[i])){
+            printallNumber(arr[i]);
+        } else {
+            console.log(arr[i]);
+        }
+    }
+}
+
+
+
+
+const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
+printallNumber(arr);
