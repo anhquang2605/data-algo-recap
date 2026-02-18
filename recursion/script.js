@@ -28,7 +28,7 @@ const reverseString = (str) => {
     if(str.length === 1){
         return str;
     } else {
-        return  reverseString(str.slice(1, str.length - 1)) + str[0];
+        return  reverseString(str.slice(1)) + str[0];
     }
 }
 
@@ -39,8 +39,23 @@ const sumOfArray = (arr) => {
     return arr[0] + sumOfArray(arr.slice(1));
 }
 
+const countX = (str) => {
+    const currentChar = str[0];
+    if(str.length === 0){
+        return 0;
+    }
+    if(currentChar === 'x'){
+        return 1 + countX(str.slice(1));
+    } else {
+        return countX(str.slice(1));
+    }
+
+}
+
 const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
 const arr2 = [1, 2, 3, 4, 5];
+const str = 'xoxoxoxoxoxoxoxoxo';
 //printallNumber(arr);
 console.log(reverseString('hello world'));
 console.log(sumOfArray(arr2));
+console.log(countX(str));
