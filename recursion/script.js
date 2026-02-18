@@ -24,8 +24,23 @@ const printallNumber = (arr ) => {
     }
 }
 
+const reverseString = (str) => {
+    if(str.length === 1){
+        return str;
+    } else {
+        return  reverseString(str.slice(1, str.length - 1)) + str[0];
+    }
+}
 
-
+const sumOfArray = (arr) => {
+    if(arr.length === 1){
+        return arr[0];
+    }
+    return arr[0] + sumOfArray(arr.slice(1));
+}
 
 const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
-printallNumber(arr);
+const arr2 = [1, 2, 3, 4, 5];
+//printallNumber(arr);
+console.log(reverseString('hello world'));
+console.log(sumOfArray(arr2));
