@@ -51,6 +51,18 @@ const countX = (str) => {
     }
 
 }
+// for N = 9, consider sub problems that will includes step from N = 8, but also step from N = 7 (since someone can jump 2 steps), and step from N = 6 (since someone can jump 3 steps)
+// requirement say that some one can jump 1, 2, 3 steps 
+const stairCase = (steps) => {
+    if(steps < 0){
+        return 0;
+    }
+    if(steps === 0 || steps === 1){
+        return 1;
+    }
+    return stairCase(steps - 1) + stairCase(steps - 2) + stairCase(steps - 3);
+
+}
 
 const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
 const arr2 = [1, 2, 3, 4, 5];
@@ -58,4 +70,4 @@ const str = 'xoxoxoxoxoxoxoxoxo';
 //printallNumber(arr);
 console.log(reverseString('hello world'));
 console.log(sumOfArray(arr2));
-console.log(countX(str));
+console.log(countX(str))
