@@ -88,4 +88,3 @@ const revereseString = (str) => {
 }
 
 const string = "Hello World!";
-console.log(revereseString(string));
