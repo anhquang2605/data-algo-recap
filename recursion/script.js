@@ -65,28 +65,33 @@ const stairCase = (steps) => {
 }
 
 const subString = (str) => {
-    if (str.length === 0){
-        return [''];
-    } 
     if (str.length === 1){
-        return [str];
+        return [str[0]];
     }
     const firstChar = str[0];
     let remainingSubString = subString(str.slice(1));
     let result = [];
     for(let i = 0; i < remainingSubString.length; i++){
-        let copy = remainingSubString;
-        result.push(
-            copy.splice(i, 0, firstChar).join('')
-        );
+        let subString = remainingSubString[i];
+        for(let j = 0; j < subString.length; j++){
+            let copy = [...subString];
+            result.push(
+                copy.splice(j, 0, firstChar).join('')            );
+            console.log(result);
+        }
     }
     return result
 }
 
+
 const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
 const arr2 = [1, 2, 3, 4, 5];
 const str = 'xoxoxoxoxoxoxoxoxo';
+const str2 = 'abc';
+const str3 = [...str2]
 //printallNumber(arr);
 console.log(reverseString('hello world'));
 console.log(sumOfArray(arr2));
 console.log(countX(str))
+console.log(subString(str2));
+console.log(str3.splice(1, 0, 'a'));
