@@ -64,6 +64,25 @@ const stairCase = (steps) => {
 
 }
 
+const subString = (str) => {
+    if (str.length === 0){
+        return [''];
+    } 
+    if (str.length === 1){
+        return [str];
+    }
+    const firstChar = str[0];
+    let remainingSubString = subString(str.slice(1));
+    let result = [];
+    for(let i = 0; i < remainingSubString.length; i++){
+        let copy = remainingSubString;
+        result.push(
+            copy.splice(i, 0, firstChar).join('')
+        );
+    }
+    return result
+}
+
 const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
 const arr2 = [1, 2, 3, 4, 5];
 const str = 'xoxoxoxoxoxoxoxoxo';
