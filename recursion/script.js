@@ -69,16 +69,17 @@ const subString = (str) => {
         return [str[0]];
     }
     const firstChar = str[0];
-    let remainingSubString = subString(str.slice(1));
+    const remainingString = [...str].slice(1).join('');
+    let remainingSubString = subString(remainingString);
     let result = [];
     for(let i = 0; i < remainingSubString.length; i++){
         let subString = remainingSubString[i];
-        for(let j = 0; j < subString.length; j++){
+        for(let j = 0; j <= subString.length; j++){//CONSIDER BEYOND THE LENGTH OF THE SUBSTRING, SINCE SOMEONE CAN PUT THE FIRST CHARACTER IN THE END OF THE SUBSTRING
             let copy = [...subString];
+            copy.splice(j, 0, firstChar);;
             result.push(
-                copy.splice(j, 0, firstChar).join('')            
+                copy.join('')           
             );
-            console.log(result);
         }
     }
     return result
@@ -89,10 +90,8 @@ const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
 const arr2 = [1, 2, 3, 4, 5];
 const str = 'xoxoxoxoxoxoxoxoxo';
 const str2 = 'abc';
-const str3 = [...str2]
 //printallNumber(arr);
 console.log(reverseString('hello world'));
 console.log(sumOfArray(arr2));
 console.log(countX(str))
 console.log(subString(str2));
-console.log(str3.splice(0, 0, 'a'));
