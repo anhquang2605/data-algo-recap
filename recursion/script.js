@@ -76,7 +76,8 @@ const subString = (str) => {
         for(let j = 0; j < subString.length; j++){
             let copy = [...subString];
             result.push(
-                copy.splice(j, 0, firstChar).join('')            );
+                copy.splice(j, 0, firstChar).join('')            
+            );
             console.log(result);
         }
     }
@@ -94,4 +95,4 @@ console.log(reverseString('hello world'));
 console.log(sumOfArray(arr2));
 console.log(countX(str))
 console.log(subString(str2));
-console.log(str3.splice(1, 0, 'a'));
+console.log(str3.splice(0, 0, 'a'));
