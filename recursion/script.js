@@ -85,13 +85,22 @@ const subString = (str) => {
     return result
 }
 
+const characterCount = (str) => {
+    if(str.length === 0){
+        return 0;
+    } else {
+        return str[0].length + characterCount(str.slice(1));
+    }
+}
 
 const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
 const arr2 = [1, 2, 3, 4, 5];
 const str = 'xoxoxoxoxoxoxoxoxo';
 const str2 = 'abc';
+const strarr = ['hello', 'world', 'this', 'is', 'a', 'test'];
 //printallNumber(arr);
 console.log(reverseString('hello world'));
 console.log(sumOfArray(arr2));
 console.log(countX(str))
 console.log(subString(str2));
+console.log(characterCount(strarr));
