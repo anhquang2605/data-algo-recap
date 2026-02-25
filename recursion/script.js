@@ -86,15 +86,29 @@ const subString = (str) => {
 }
 
 const characterCount = (str) => {
-    if(str.length === 0){
-        return 0;
+    if(str.length === 1){
+        return str[0].length;
     } else {
         return str[0].length + characterCount(str.slice(1));
     }
 }
+const justEvenNumber = (arr) => {
+    const result = [];
+    const firstNum = arr[0];
+    if(arr.length === 1){
+        if(firstNum % 2 === 0){
+            result .push(arr[0]);        
+        }
+        return result;
+    }
+    if(firstNum % 2 === 0){
+        result.push(firstNum);
+    }
+    return result.concat(justEvenNumber(arr.slice(1))); 
 
+}
 const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
-const arr2 = [1, 2, 3, 4, 5];
+const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 const str = 'xoxoxoxoxoxoxoxoxo';
 const str2 = 'abc';
 const strarr = ['hello', 'world', 'this', 'is', 'a', 'test'];
@@ -104,3 +118,4 @@ console.log(sumOfArray(arr2));
 console.log(countX(str))
 console.log(subString(str2));
 console.log(characterCount(strarr));
+console.log(justEvenNumber(arr2));
