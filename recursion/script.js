@@ -127,6 +127,7 @@ const firstXIndex = (str) => {
 const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
 const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 const str = 'xoxoxoxoxoxoxoxoxo';
+const str1 = 'abc';
 const str2 = 'abc';
 const strarr = ['hello', 'world', 'this', 'is', 'a', 'test'];
 //printallNumber(arr);
@@ -137,4 +138,4 @@ console.log(subString(str2));
 console.log(characterCount(strarr));
 console.log(justEvenNumber(arr2));
 console.log(trianglenNumber(6));
-console.log(firstXIndex(str));
+console.log(firstXIndex(str1));
