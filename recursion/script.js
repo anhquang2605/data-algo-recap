@@ -113,15 +113,15 @@ const trianglenNumber = (n) => {
     } 
     return n + trianglenNumber(n - 1);
 }
-const firstXIndex = (str) => {
-    const currentChar = str[0];
+const firstXIndex = (str, currentIndex) => {
+    const currentChar = str[currentIndex];
     if(str.length === 0){
         return -1;
     }
     if(currentChar === 'x'){
-        return 0;
+        return currentIndex;
     } else {
-        return 1 + firstXIndex(str.slice(1));
+        return firstXIndex(str.slice(1), currentIndex + 1);
     }
 }
 const arr = [1, 2, 3, 4, 5, [6, 7, 8, [10 , 20] ], 9, 10];
@@ -129,6 +129,7 @@ const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
 const str = 'xoxoxoxoxoxoxoxoxo';
 const str1 = 'abc';
 const str2 = 'abc';
+const str3 = 'abcdxasfdcx';
 const strarr = ['hello', 'world', 'this', 'is', 'a', 'test'];
 //printallNumber(arr);
 console.log(reverseString('hello world'));
@@ -138,4 +139,4 @@ console.log(subString(str2));
 console.log(characterCount(strarr));
 console.log(justEvenNumber(arr2));
 console.log(trianglenNumber(6));
-console.log(firstXIndex(str1));
+console.log(firstXIndex(str3,0));
