@@ -114,7 +114,7 @@ const trianglenNumber = (n) => {
     return n + trianglenNumber(n - 1);
 }
 const firstXIndex = (str, currentIndex) => {
-    const currentChar = str[currentIndex];
+    const currentChar = str[0];
     if(str.length === 0){
         return -1;
     }
@@ -139,4 +139,4 @@ console.log(subString(str2));
 console.log(characterCount(strarr));
 console.log(justEvenNumber(arr2));
 console.log(trianglenNumber(6));
-console.log(firstXIndex(str3,0));
+console.log(firstXIndex(str,0));
