@@ -10,3 +10,14 @@ const fib2 = (n, memo = {}) => {
     memo[n] = fib2(n - 1, memo) + fib2(n - 2, memo);
     return memo[n];
 }
+//using bottom up approach, linear time complexity
+const fib3 = (n) => {
+    if (n === 0) return 0;
+    let a = 0, b = 1;
+    for (let i = 2; i <= n; i++) {
+        let temp = a + b;
+        a = b;
+        b = temp;
+    }
+    return b;
+}
