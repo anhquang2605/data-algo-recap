@@ -146,3 +146,4 @@ console.log(characterCount(strarr));
 console.log(justEvenNumber(arr2));
 console.log(trianglenNumber(6));
 console.log(firstXIndex(str,0));
+console.log(uniqueShortestPath(2, 3));
