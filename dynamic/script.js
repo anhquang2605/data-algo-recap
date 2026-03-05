@@ -42,4 +42,18 @@ const golomb2 = (n, memo = {}) => {
     if (n in memo) return memo[n];
     if (n === 1) return 1;
     memo[n] = golomb2(n - golomb2(golomb2(n - 1), memo), memo) + 1;
+    return memo[n];
+}
+//unique paths without memoization, exponential time complexity
+const uniquePaths = (m, n) => {
+    if (m === 1 || n === 1) return 1;
+    return uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
+}
+//unique paths with memoization, linear time complexity
+const uniquePaths2 = (m, n, memo = {}) => {
+    const key = `${m},${n}`;
+    if (key in memo) return memo[key];
+    if (m === 1 || n === 1) return 1;
+    memo[key] = uniquePaths2(m - 1, n, memo) + uniquePaths2(m, n - 1, memo);
+    return memo[key];
 }
