@@ -39,9 +39,10 @@ const golomb = (n) => {
     return 1 + golomb(n - golomb(golomb(n - 1)));
 }
 const golomb2 = (n, memo = {}) => {
-    if (n in memo) return memo[n];
     if (n === 1) return 1;
-    memo[n] = golomb2(n - golomb2(golomb2(n - 1), memo), memo) + 1;
+    if (!(n in memo)) {
+        memo[n] = golomb2(n - golomb2(golomb2(n - 1, memo), memo), memo) + 1;
+    }
     return memo[n];
 }
 //unique paths without memoization, exponential time complexity
