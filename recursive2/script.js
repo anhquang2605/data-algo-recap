@@ -27,4 +27,8 @@ class SortableArray {
         this.arr[pivotIndex] = temp;
         return low;
     }
+    quickSort = () => {
+        
+
+    }
 }
