@@ -1,0 +1,1 @@
+1. quick sort is one of the fastest sort that use recursion. Implemented in many language for array
