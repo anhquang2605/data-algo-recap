@@ -33,3 +33,13 @@ const addUntil100 = (arr) => {
         return firstNum + remaingSum;
     }
 }
+//the Og golomb sequence, exponential time complexity, need to memorize to get linear time complexity
+const golomb = (n) => {
+    if (n === 1) return 1;
+    return 1 + golomb(n - golomb(golomb(n - 1)));
+}
+const golomb2 = (n, memo = {}) => {
+    if (n in memo) return memo[n];
+    if (n === 1) return 1;
+    memo[n] = golomb2(n - golomb2(golomb2(n - 1), memo), memo) + 1;
+}
