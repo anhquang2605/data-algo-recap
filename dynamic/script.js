@@ -21,3 +21,15 @@ const fib3 = (n) => {
     }
     return b;
 }
+
+const addUntil100 = (arr) => {
+    if (arr.length === 0) return 0;
+    const firstNum = arr[0];
+    const remainingArr = arr.slice(1);
+    const remaingSum = addUntil100(remainingArr);
+    if (firstNum + remaingSum > 100) {
+        return remaingSum;
+    } else {
+        return firstNum + remaingSum;
+    }
+}
