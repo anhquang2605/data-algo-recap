@@ -52,9 +52,10 @@ const uniquePaths = (m, n) => {
 }
 //unique paths with memoization, linear time complexity
 const uniquePaths2 = (m, n, memo = {}) => {
-    const key = `${m},${n}`;
-    if (key in memo) return memo[key];
     if (m === 1 || n === 1) return 1;
-    memo[key] = uniquePaths2(m - 1, n, memo) + uniquePaths2(m, n - 1, memo);
+    const key = `${m},${n}`;
+    if (!(key in memo)) {
+        memo[key] = uniquePaths2(m - 1, n, memo) + uniquePaths2(m, n - 1, memo);
+    } 
     return memo[key];
 }
