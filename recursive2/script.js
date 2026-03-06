@@ -27,8 +27,12 @@ class SortableArray {
         this.arr[pivotIndex] = temp;
         return low;
     }
-    quickSort = () => {
-        
-
+    quickSort = (low, high) => {
+        if (high - low <= 0){
+            return;
+        }
+        pivotIndex = this.partition(low, high);
+        this.quickSort(low, pivotIndex - 1);
+        this.quickSort(pivotIndex + 1, high);
     }
 }
