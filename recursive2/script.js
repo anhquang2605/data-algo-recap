@@ -49,3 +49,14 @@ class SortableArray {
         }
     }
 }
+
+const greatestProductOFThree = (arr) => {
+    const sortableArray = new SortableArray(arr);
+    const length = arr.length;
+    const sortedArr = sortableArray.quickSort(0, arr.length - 1);
+    const greatestProduct = sortedArr[length - 1] * sortedArr[length - 2] * sortedArr[length - 3];
+    return greatestProduct;
+}
+
+let arr = [1, 10, 2, 6, 5, 3];
+console.log(greatestProductOFThree(arr));
