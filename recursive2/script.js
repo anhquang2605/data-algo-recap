@@ -73,3 +73,28 @@ const missingNumber = (arr) => {
 let arr2 = [0, 1, 2 , 4, 5, 6];
 console.log(missingNumber(arr2));
 console.log(greatestProductOFThree(arr));
+
+const findGreatestNumber = (arr) => {
+    let max = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+//O(n^2)
+const badFindGreatestNumber = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        let isGreatest = true;
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[i] < arr[j]) {
+                isGreatest = false;
+            }
+        }
+        if (isGreatest) {
+            return arr[i];
+        }
+    }    
+    return null;
+}
