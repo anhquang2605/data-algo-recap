@@ -98,3 +98,9 @@ const badFindGreatestNumber = (arr) => {
     }    
     return null;
 }
+//O(nlogn)
+const goodFindGreatestNumber = (arr) => {
+    const sortableArray = new SortableArray(arr);
+    sortableArray.quickSort(0, arr.length - 1);
+    return sortableArray.arr[arr.length - 1];
+}
