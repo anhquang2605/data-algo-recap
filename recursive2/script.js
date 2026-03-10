@@ -31,7 +31,7 @@ class SortableArray {
         if (high - low <= 0){
             return;
         }
-        pivotIndex = this.partition(low, high);
+        const pivotIndex = this.partition(low, high);
         this.quickSort(low, pivotIndex - 1);
         this.quickSort(pivotIndex + 1, high);
     }
@@ -39,7 +39,7 @@ class SortableArray {
         if(high - low <= 0){//base case when there is only one element left in the array, return that element
             return this.arr[low];
         }
-        pivotIndex = this.partition(low, high);
+        const pivotIndex = this.partition(low, high);
         if(k < pivotIndex){
             return this.quickSelect(low, pivotIndex - 1, k);
         } else if (k > pivotIndex) {
