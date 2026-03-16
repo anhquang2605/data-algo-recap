@@ -8,3 +8,8 @@
 7. To search, O(N)
 8. To insert, O(1) when at the head, O(N) otherwise for worst case and average case
 9. To Delete, O(1) when at the head, O(N) otherwise
+10. This is good when moving down the list while insert and delete the node
+
+### Doubly Linked List
+1. Like linked list but has a previous node
+2. the linked list store head and tail

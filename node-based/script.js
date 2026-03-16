@@ -4,6 +4,13 @@ class Node {
         this.next = null;
     }
 }
+class Node2{
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+        this.prev = null;
+    }
+}
 //create a linked list, only need to know the head
 class LinkedList {
     constructor(node){
@@ -18,6 +25,13 @@ class LinkedList {
             currentNode = currentNode.next;
         }
         return currentNode;
+    }
+    printAll(){
+        let currentNode = this.head;
+        while(currentNode !== null) {
+            console.log(currentNode.value);
+            currentNode = currentNode.next;
+        }
     }
     search(value){
         let currentNode = this.head;
@@ -47,6 +61,28 @@ class LinkedList {
             const currentNode = this.read(index-1);
             currentNode.next = currentNode.next.next;
         }
+    }
+}
+
+class DoublyLinkedList {
+    constructor(firstNode = null, lastNode = null)  {
+        this.head = firstNode;
+        this.tail = lastNode;
+    }
+    insertion(index, value){
+        if(index = 0){
+            const newNode = new Node2(value);
+            newNode.next = this.head;
+            this.head = newNode;
+            
+        }
+    }
+    insertAtEnd(value) {
+        const newNode = new Node(value);
+        newNode.prev = this.tail;
+        this.tail.next = newNode;
+        this.tail = newNode;
+        
     }
 }
 const node = new Node(3);
