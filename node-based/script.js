@@ -84,6 +84,13 @@ class DoublyLinkedList {
         this.tail = newNode;
         
     }
+    printAllReverse(){
+        let currentNode = this.tail;
+        while(currentNode !== null) {
+            console.log(currentNode.value);
+            currentNode = currentNode.prev;
+        }
+    }
 }
 const node = new Node(3);
 const node2 = new Node(4);
