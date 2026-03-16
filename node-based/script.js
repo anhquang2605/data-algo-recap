@@ -8,7 +8,23 @@ class Node {
 class LinkedList {
     constructor(node){
         this.head =     node;
-        
+    }
+    read (valueAtIndex) {
+        if(valueAtIndex < 0) {
+            return null;
+        }
+        let currentNode = this.head;
+        for(let i = 0; i < valueAtIndex; i++) {
+            currentNode = currentNode.next;
+        }
+        return currentNode;
+    }
+    search(value){
+        let currentNode = this.head;
+        while(currentNode.value !== value) {
+            currentNode = currentNode.next;
+        }
+        return currentNode;
     }
 }
 const node = new Node(3);
