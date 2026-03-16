@@ -7,3 +7,4 @@
 6. To read, O(N), big disavantage over array
 7. To search, O(N)
 8. To insert, O(1) when at the head, O(N) otherwise for worst case and average case
+9. To Delete, O(1) when at the head, O(N) otherwise

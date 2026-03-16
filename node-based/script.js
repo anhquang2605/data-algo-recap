@@ -39,6 +39,15 @@ class LinkedList {
             currentNode.next = newNode;
         }
     }
+    delete(index) {
+        if (index == 0){
+            this.head = this.head.next;
+        }
+        else {
+            const currentNode = this.read(index-1);
+            currentNode.next = currentNode.next.next;
+        }
+    }
 }
 const node = new Node(3);
 const node2 = new Node(4);
