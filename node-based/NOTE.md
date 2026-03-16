@@ -5,3 +5,5 @@
 4. final node contain null data
 5. Best for memory, since we dont need to preallocate memory like array. when we need to expand the linked list, just add new one and allocate new location
 6. To read, O(N), big disavantage over array
+7. To search, O(N)
+8. To insert, O(1) when at the head, O(N) otherwise for worst case and average case

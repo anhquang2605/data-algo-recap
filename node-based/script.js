@@ -26,6 +26,19 @@ class LinkedList {
         }
         return currentNode;
     }
+    insert(index, value){
+        if (index == 0){
+            const newNode = new Node(value);
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        else {
+            const currentNode = this.read(index-1);
+            const newNode = new Node(value);
+            newNode.next = currentNode.next;
+            currentNode.next = newNode;
+        }
+    }
 }
 const node = new Node(3);
 const node2 = new Node(4);
