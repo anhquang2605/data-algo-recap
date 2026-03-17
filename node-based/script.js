@@ -26,6 +26,13 @@ class LinkedList {
         }
         return currentNode;
     }
+    readLast() {
+        let currentNode = this.head;
+        while(currentNode.next !== null) {
+            currentNode = currentNode.next;
+        }
+        return currentNode;
+    }
     printAll(){
         let currentNode = this.head;
         while(currentNode !== null) {
@@ -60,6 +67,17 @@ class LinkedList {
         else {
             const currentNode = this.read(index-1);
             currentNode.next = currentNode.next.next;
+        }
+    }
+    reverseList() {
+        let currentNode = this.head;
+        let prev = null;
+        let next = null;
+        while(currentNode !== null){
+            next = currentNode.next;
+            currentNode.next = prev;
+            prev = currentNode;
+            currentNode = next;
         }
     }
 }
