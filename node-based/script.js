@@ -71,13 +71,13 @@ class LinkedList {
     }
     reverseList() {
         let currentNode = this.head;
-        let prev = null;
-        let next = null;
+        let prevNode = null;
+        let nextNode = null;
         while(currentNode !== null){
-            next = currentNode.next.next;
-            currentNode.next = prev;
-            prev = currentNode;
-            currentNode = next;
+            nextNode = currentNode.next;
+            currentNode.next = prevNode;
+            prevNode = nextNode;
+            currentNode = nextNode.next;
         }
     }
 }
@@ -116,3 +116,6 @@ const node3 = new Node(5);
 node.next = node2;
 node2.next = node3;
 const list = new LinkedList(node);
+list.printAll();
+list.reverseList();
+list.printAll();
