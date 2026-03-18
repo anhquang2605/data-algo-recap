@@ -69,6 +69,10 @@ class LinkedList {
             currentNode.next = currentNode.next.next;
         }
     }
+    deleteInMiddle(node){
+        node.value = node.next.value;
+        node.next = node.next.next;
+    }
     reverseList() {
         let currentNode = this.head;
         let prevNode = null;
@@ -79,6 +83,7 @@ class LinkedList {
             prevNode = currentNode;
             currentNode = nextNode;
         }
+        //update the head
         this.head = prevNode;
     }
 }
@@ -117,5 +122,6 @@ const node3 = new Node(5);
 node.next = node2;
 node2.next = node3;
 const list = new LinkedList(node);
-//list.printAll();
+list.printAll();
 list.reverseList();
+list.printAll();
