@@ -74,7 +74,7 @@ class LinkedList {
         let prev = null;
         let next = null;
         while(currentNode !== null){
-            next = currentNode.next;
+            next = currentNode.next.next;
             currentNode.next = prev;
             prev = currentNode;
             currentNode = next;
