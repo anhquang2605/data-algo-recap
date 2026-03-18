@@ -118,4 +118,3 @@ node2.next = node3;
 const list = new LinkedList(node);
 //list.printAll();
 list.reverseList();
-list.printAll();
