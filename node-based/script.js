@@ -79,6 +79,7 @@ class LinkedList {
             prevNode = currentNode;
             currentNode = nextNode;
         }
+        this.head = prevNode;
     }
 }
 
