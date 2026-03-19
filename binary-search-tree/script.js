@@ -23,8 +23,14 @@ class BST {
         currentNode = this.root;
         while(currentNode){
             if(currentNode.value === value) return;
+            if(currentNode.value < value && currentNode.right === null) {
+                currentNode.right = new TreeNode(value);
+            }
+            else if (currentNode.value > value && currentNode.left === null) {
+                currentNode.left = new TreeNode(value);
+            } 
             else if (currentNode.value > value) currentNode = currentNode.left;
-            else currentNode = currentNode.right;
+            else if (currentNode.value < value) currentNode = currentNode.right;
         }
         currentN
     }
