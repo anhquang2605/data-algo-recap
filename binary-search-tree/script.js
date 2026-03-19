@@ -6,11 +6,11 @@ class TreeNode {
     }
 }
 class BST {
-    constructor() {
-        this.root = null;
+    constructor(value) {
+        this.root = new TreeNode(value);
     }
     search() {
-        currentNode = this.root;
+        let currentNode = this.root;
         while(currentNode !== null){
             if(currentNode.value === value) return currentNode;
             else if (currentNode.value > value) currentNode = currentNode.left;
@@ -20,18 +20,35 @@ class BST {
     }
     insert(value) {
         //no code generated
-        currentNode = this.root;
+        let currentNode = this.root;
         while(currentNode){
             if(currentNode.value === value) return;
             if(currentNode.value < value && currentNode.right === null) {
                 currentNode.right = new TreeNode(value);
+                return;
             }
             else if (currentNode.value > value && currentNode.left === null) {
                 currentNode.left = new TreeNode(value);
+                return;
             } 
             else if (currentNode.value > value) currentNode = currentNode.left;
             else if (currentNode.value < value) currentNode = currentNode.right;
         }
-        currentN
+        currentNode
+    }
+    print(node) {
+        if(node === null) return;
+        this.print(node.left);
+        console.log(node.value);
+        this.print(node.right);
     }
 }
+
+const tree = new BST(33);
+tree.insert(10);
+tree.insert(5);
+tree.insert(15);
+tree.insert(3);
+tree.insert(7);
+tree.insert(12);
+tree.print(tree.root);
