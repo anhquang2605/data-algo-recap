@@ -18,4 +18,14 @@ class BST {
         }
         return null;
     }
+    insert(value) {
+        //no code generated
+        currentNode = this.root;
+        while(currentNode){
+            if(currentNode.value === value) return;
+            else if (currentNode.value > value) currentNode = currentNode.left;
+            else currentNode = currentNode.right;
+        }
+        currentN
+    }
 }
