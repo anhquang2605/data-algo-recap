@@ -15,3 +15,4 @@
 2. each node can only have one left and one right child
 3. left child can only contain value less that the node it self. right descendants only has value greater than the node
 4. searching with BST is O(logN) since we cut down the search pool in half everytime we move down the level
+5. when we insert data into tree, inserting by order will result in a linear tree making the search O(N). should randomize data first before insertion
