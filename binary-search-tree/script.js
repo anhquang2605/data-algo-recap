@@ -42,6 +42,38 @@ class BST {
         console.log(node.value);
         this.print(node.right);
     }
+    delete(value , node) {
+        if (!node) 
+        {return null}
+        else if (value < node.value){
+            node.left = this.delete(value, node.left);
+            return node;
+        }
+        else if (value > node.value){
+            node.right = this.delete(value, node.right);
+            return node;
+        }
+        else if (value == node.value){
+            if (node.right == null) {
+                return node.left;
+            }
+            else if (node.left == null) {
+                return node.right;
+            }
+            else {
+                node.value = node.right.getMinValue();
+            }
+        }
+    }
+    lift (node, nodeToDel){
+        if (node.left){
+            node.left = this.delete(nodeToDel.value, node.left);
+            return node;
+        }else {
+            nodeToDel.value = node.value
+            return node.right;
+        }
+    }
 }
 
 const tree = new BST(33);
