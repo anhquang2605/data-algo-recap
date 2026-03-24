@@ -21,4 +21,4 @@
     a. When a node does not have children, delete it
     b. node has one children, replace it with the child
     c. node has two children, find a successor node
-2. Successor node: a child that is the smallest among the greater values of the deleted node. 
+2. Successor node: a child that is the smallest among the greater values of the deleted node. To find it. go to the right node of the deleted, then traverse to the left until we reach the bottom, resultng in the smallest value among the values that are greater than the deleted note
