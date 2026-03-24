@@ -20,5 +20,5 @@
 1. When deleting a node:
     a. When a node does not have children, delete it
     b. node has one children, replace it with the child
-    c. node has two children, replace it with the node that is the greater child
-    d. 
+    c. node has two children, find a successor node
+2. Successor node: a child that is the smallest among the greater values of the deleted node. 
