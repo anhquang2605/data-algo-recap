@@ -16,3 +16,9 @@
 3. left child can only contain value less that the node it self. right descendants only has value greater than the node
 4. searching with BST is O(logN) since we cut down the search pool in half everytime we move down the level
 5. when we insert data into tree, inserting by order will result in a linear tree making the search O(N). should randomize data first before insertion
+#### Deleting
+1. When deleting a node:
+    a. When a node does not have children, delete it
+    b. node has one children, replace it with the child
+    c. node has two children, replace it with the node that is the greater child
+    d. 
