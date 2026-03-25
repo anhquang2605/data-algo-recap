@@ -25,6 +25,18 @@ class BST {
         }
         return currentNode;
     }
+    preOrderSearch(node){
+        if(node === null) return;
+        console.log(node.value);
+        this.preOrderSearch(node.left);
+        this.preOrderSearch(node.right);
+    }
+    postOrderSearch(node){
+        if(node === null) return;
+        this.postOrderSearch(node.left);
+        this.postOrderSearch(node.right);
+        console.log(node.value);
+    }
     insert(value) {
         //no code generated
         let currentNode = this.root;
