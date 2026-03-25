@@ -46,7 +46,7 @@ class BST {
         if (!node) 
         {return null}
         else if (value < node.value){
-            //find the value to be deleted, also replace the left child of this node with the result of the deletion
+            //find the value to be deleted, also replace the left child of this node with the result of the deletion which help maintain the BST child and parent relationship
             node.left = this.delete(value, node.left);
             return node;
         }
