@@ -46,6 +46,7 @@ class BST {
         if (!node) 
         {return null}
         else if (value < node.value){
+            //find the value to be deleted, also replace the left child of this node with the result of the deletion
             node.left = this.delete(value, node.left);
             return node;
         }
@@ -53,7 +54,7 @@ class BST {
             node.right = this.delete(value, node.right);
             return node;
         }
-        else if (value == node.value){
+        else if (value == node.value){//delete the node then return the successors
             if (node.right == null) {
                 return node.left;
             }
@@ -61,7 +62,8 @@ class BST {
                 return node.right;
             }
             else {
-                node.value = node.right.getMinValue();
+                node.value = this.lift(node.right, node);
+                return node;
             }
         }
     }
