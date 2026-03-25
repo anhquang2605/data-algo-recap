@@ -23,3 +23,4 @@
     c. node has two children, find a successor node
 2. Successor node: a child that is the smallest among the greater values of the deleted node. To find it. go to the right node of the deleted, then traverse to the left until we reach the bottom, resultng in the smallest value among the values that are greater than the deleted note.
 3. if Successor node has a right child, then plug the successor node into the deleted spot, then turn that right child into left child of the former parent of the successor node
+4. delete is O(logN)

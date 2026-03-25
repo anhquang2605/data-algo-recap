@@ -42,7 +42,7 @@ class BST {
         console.log(node.value);
         this.print(node.right);
     }
-    delete(value , node) {
+    delete(value , node) {//keytake away: keep track of the parent node, return the current node in the recursive function unless node to be deleted is found
         if (!node) 
         {return null}
         else if (value < node.value){
