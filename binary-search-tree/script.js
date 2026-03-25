@@ -18,6 +18,13 @@ class BST {
         }
         return null;
     }
+    searchGreatest() {
+        let currentNode = this.root;
+        while(currentNode.right !== null) {
+            currentNode = currentNode.right;
+        }
+        return currentNode;
+    }
     insert(value) {
         //no code generated
         let currentNode = this.root;
