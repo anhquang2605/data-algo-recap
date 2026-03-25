@@ -56,12 +56,12 @@ class BST {
         }
         else if (value == node.value){//delete the node then return the successors
             if (node.right == null) {
-                return node.left;
+                return node.left;//if the right child is null, return the left child, also cover when the node does not have any children
             }
             else if (node.left == null) {
-                return node.right;
+                return node.right;//if the left child is null, return the right child, also cover when the node does not have any children (which is the base case)
             }
-            else {
+            else {//if the node has two children
                 node.value = this.lift(node.right, node);
                 return node;
             }
