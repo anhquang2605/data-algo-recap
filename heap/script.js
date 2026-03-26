@@ -25,6 +25,20 @@ class Heap {
             [this.heap[newNodeIndex], this.heap[this.parentIndex(newNodeIndex)]] = [this.heap[this.parentIndex(newNodeIndex)], this.heap[newNodeIndex]];
             newNodeIndex = this.parentIndex(newNodeIndex);
         }
-
+    }
+    hasGreaterChild(index){
+        //check if left child exist and is greater or right child exist and is greater
+        return this.heap[this.leftChildIndex(index)] && this.heap[this.leftChildIndex(index)] >  this.heap[index] 
+        || this.heap[this.rightChildIndex(index)] && this.heap[this.rightChildIndex(index)] > this.heap[index];
+    }
+    getLargerChildIndex(index){
+        if(!this.heap[this.rightChildIndex(index)]){
+            return this.leftChildIndex(index);
+        }
+        if(this.heap[this.leftChildIndex(index)] < this.heap[this.rightChildIndex(index)]){
+            return this.rightChildIndex(index);
+        } else {
+            return this.leftChildIndex(index);
+        }
     }
 }
