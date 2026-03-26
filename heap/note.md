@@ -13,3 +13,7 @@
 4. lean forward max-heap, but also mean heap
 5. condition of heap: 1. value of each node is > than each descendant nodes (heap condtion) 2. tree must be complete
 #### Heap condtion
+1. each node value must be > than its descendants (max-heap)
+2. each node value must be < than its descendants (min-heap)
+#### Complete tree
+1. all rows are fileed with node, no missing node on the row or level. there can be empty nodes at the bottom level but there would be no node to the right of the empty position
