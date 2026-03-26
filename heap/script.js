@@ -17,4 +17,13 @@ class Heap {
     parentIndex(index) {
         return Math.floor((index - 1) / 2);
     }
+    insert(value){
+        let newNodeIndex = this.heap.length - 1;
+        this.heap.push(value);
+        while(newNodeIndex > 0 && this.heap[newNodeIndex] > this.heap[this.parentIndex(newNodeIndex)]){
+            [this.heap[newNodeIndex], this.heap[this.parentIndex(newNodeIndex)]] = [this.heap[this.parentIndex(newNodeIndex)], this.heap[newNodeIndex]];
+            newNodeIndex = this.parentIndex(newNodeIndex);
+        }
+
+    }
 }
