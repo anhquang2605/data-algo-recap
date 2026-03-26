@@ -20,6 +20,7 @@ class Heap {
     insert(value){
         let newNodeIndex = this.heap.length - 1;
         this.heap.push(value);
+        //trickle up using while loop, the index > 0 to make sure that we stop at the root node
         while(newNodeIndex > 0 && this.heap[newNodeIndex] > this.heap[this.parentIndex(newNodeIndex)]){
             [this.heap[newNodeIndex], this.heap[this.parentIndex(newNodeIndex)]] = [this.heap[this.parentIndex(newNodeIndex)], this.heap[newNodeIndex]];
             newNodeIndex = this.parentIndex(newNodeIndex);
