@@ -41,3 +41,6 @@
 ##### How to look for the last node?
 1. relating to arrays implemented as heaps (efficient in finding the last nodes since it is the last element of the array)
 2. going down from the root to the bottom, array indexes going from 0 to n from left to right, top to bottom
+##### heap as array, how do we know the parent or children?
+1. find left child: (index * 2) + 1
+2. find right child: (index * 2) + 2
