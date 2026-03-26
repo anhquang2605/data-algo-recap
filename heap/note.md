@@ -31,7 +31,13 @@
 1. move the last node to the root, effectively deleted the root node (since we remove the top priority item first)
 2. trickle the last node down to its position
 ##### How to trickle down
-1. 
+1. check children of the trickle node (the node being moved down) which one is greater
+2. if the node is smaller than the larger of the children, then swap places with that child
+3. trickle down until the node has no children that is larger than the trickle node
 
+#### Why heap need to be well-balanced
+1. root from the completeness condition
+2. so we can achieve O(logN) operation
 ##### How to look for the last node?
-1. 
+1. relating to arrays implemented as heaps (efficient in finding the last nodes since it is the last element of the array)
+2. going down from the root to the bottom, array indexes going from 0 to n from left to right, top to bottom
