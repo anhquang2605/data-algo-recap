@@ -44,3 +44,10 @@
 ##### heap as array, how do we know the parent or children?
 1. find left child: (index * 2) + 1
 2. find right child: (index * 2) + 2
+##### alternate way to implement heap
+1. linked node is one (used different trick to solve the last node problem)
+#### Heap sort
+1. insert into the heap, then pop one by one
+2. for max heap, data would go in descending order
+3. for min heap, data would go in ascending order
+4. would take O(NlogN) to sort, like quicksort
