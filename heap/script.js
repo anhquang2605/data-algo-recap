@@ -41,4 +41,14 @@ class Heap {
             return this.leftChildIndex(index);
         }
     }
+    delete(){
+        toBeDeleted = this.root();
+        this.heap[0] = this.heap.pop();
+        let trickleDownIndex = 0;
+        while(this.hasGreaterChild(trickleDownIndex)){
+           let largerChildIndex = this.getLargerChildIndex(trickleDownIndex);
+           [this.heap[trickleDownIndex], this.heap[largerChildIndex]] = [this.heap[largerChildIndex], this.heap[trickleDownIndex]];
+           trickleDownIndex = largerChildIndex;
+        }
+    }
 }
