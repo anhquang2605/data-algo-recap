@@ -3,3 +3,4 @@
 3. quicksort is O(NLogN)
 4. Best case is when array is mixed up well O N LogN
 5. Worst case is when pivot on one side of sub array isntead of the middle, O N^2
+6. Quickselect
