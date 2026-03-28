@@ -9,15 +9,13 @@ class Trie {
     }
     search(word) {
         let currentNode = this.root;
-        while(currentNode) {
-            for(let char of word) {
-                if(!currentNode.children[char]) {
-                    return null;
-                }
-                currentNode = currentNode.children[char];
+      for (let char of word) {
+            if (!currentNode.children[char]) {
+                return null;
             }
-        }
-        return true;
+            currentNode = currentNode.children[char];
+      }
+        return currentNode;
     }
 
 }
