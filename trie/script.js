@@ -7,4 +7,17 @@ class Trie {
     constructor() {
         this.root = new TrieNode();
     }
+    search(word) {
+        let currentNode = this.root;
+        while(currentNode) {
+            for(let char of word) {
+                if(!currentNode.children[char]) {
+                    return null;
+                }
+                currentNode = currentNode.children[char];
+            }
+        }
+        return true;
+    }
+
 }
