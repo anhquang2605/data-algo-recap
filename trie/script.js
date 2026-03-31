@@ -17,5 +17,15 @@ class Trie {
       }
         return currentNode;
     }
+    insert(word) {
+        let curretNode = this.root;
+        for (let char of word) {
+            if(!curretNode.children[char]) {
+                curretNode.children[char] = new TrieNode();
+            } 
+            curretNode = curretNode.children[char];            
+        }
+        currentNode.children["*"] = null;
+    }
 
 }
