@@ -11,4 +11,8 @@
 
 ## Search
 1. would take O(K), where K is the number of character. kinda close to constant 
-##
+## Insertion
+1. search for the char among the tree children as usual
+2. if found, we move on deeper
+3. if not found, we create new Node as this char, add this node as child of current node, then update this current Node as this node. then we move on with a new character in the search string
+4. when we get to the final char in the string, we add a "*" as a child  to the last node to indicate end of word.
