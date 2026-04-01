@@ -1,5 +1,5 @@
 class TrieNode {
-    construction() {
+    constructor() {
         this.children = {};
     }
 }
@@ -27,7 +27,7 @@ class Trie {
             } 
             curretNode = newNode;            
         }
-        currentNode.children["*"] = null;
+        curretNode.children["*"] = null;
     }
     collectAllWords(node = null, words = [], word = "") {
         let currentNode = node || this.root;
@@ -66,3 +66,4 @@ trie.insert("app");
 trie.insert("ap");
 trie.insert("ape");
 trie.keyPrint(trie.root);
+console.log(trie.collectAllWords());
