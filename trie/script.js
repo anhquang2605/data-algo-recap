@@ -28,6 +28,7 @@ class Trie {
         currentNode.children["*"] = null;
     }
     collectAllWords(node = null, word = "", words = []) {
+        //we did not make the node default to root since it will collect all the words in the trie. we want to be able to collect the words at the specified node. if we make it default to root, it will always collect all the words in the trie.
         for (let key in node.children) {
             if (key === "*") {
                 words.push(word);
