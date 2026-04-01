@@ -27,5 +27,14 @@ class Trie {
         }
         currentNode.children["*"] = null;
     }
-
+    collectAllWords(node = null, word = "", words = []) {
+        for (let key in node.children) {
+            if (key === "*") {
+                words.push(word);
+            } else {
+                this.collectAllWords(node.children[key], word + key, words);
+            }
+        }
+        return words;
+    }
 }
