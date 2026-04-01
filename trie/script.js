@@ -27,7 +27,7 @@ class Trie {
         }
         currentNode.children["*"] = null;
     }
-    collectAllWords(node = null, word = "", words = []) {
+    collectAllWords(node = null, words = [], word = "") {
         let currentNode = node || this.root;
         //we did not make the node default to root since it will collect all the words in the trie. we want to be able to collect the words at the specified node. if we make it default to root, it will always collect all the words in the trie.
         for (let key in currentNode.children) {
@@ -38,5 +38,13 @@ class Trie {
             }
         }
         return words;
+    }
+    autoComplete(prefix) {
+        let currentNode = this.search(prefix);
+        if (currentNode === null) {
+            return null;
+        } else {
+            return this.collectAllWords(currentNode, []);
+        }
     }
 }
