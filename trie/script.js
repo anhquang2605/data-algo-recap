@@ -47,4 +47,13 @@ class Trie {
             return this.collectAllWords(currentNode, []);
         }
     }
+    keyPrint(node) {
+        if (node === null) {
+            return;
+        }
+        for (let key in node.children) {
+            console.log(key);
+            this.keyPrint(node.children[key]);
+        }
+    }
 }

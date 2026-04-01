@@ -16,3 +16,5 @@
 2. if found, we move on deeper
 3. if not found, we create new Node as this char, add this node as child of current node, then update this current Node as this node. then we move on with a new character in the search string
 4. when we get to the final char in the string, we add a "*" as a child  to the last node to indicate end of word.
+## Additional note
+1. extra value for the termination node current is null (node that has key of "*"), we can change this null to number value representing the importance of the word so we can priority popular words etc.
