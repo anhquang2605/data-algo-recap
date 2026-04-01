@@ -19,11 +19,13 @@ class Trie {
     }
     insert(word) {
         let curretNode = this.root;
+
         for (let char of word) {
+            let newNode = new TrieNode();
             if(!curretNode.children[char]) {
-                curretNode.children[char] = new TrieNode();
+                curretNode.children[char] = newNode;
             } 
-            curretNode = curretNode.children[char];            
+            curretNode = newNode;            
         }
         currentNode.children["*"] = null;
     }
@@ -57,3 +59,10 @@ class Trie {
         }
     }
 }
+
+const trie = new Trie();
+trie.insert("apple");
+trie.insert("app");
+trie.insert("ap");
+trie.insert("ape");
+trie.keyPrint(trie.root);
