@@ -9,6 +9,10 @@
 3. Vertex: Node or individual data
 4. edges: the line between two vertex, nodes connected by an edge are adjacent to each other
 
+### directed vs undirected
+1. directed: indicate direction of relationship: A -> B vs B -> A, A follows B, B follows A
+2. undrected: no direction, just meant relations: A - B, A and B are friends
+
 ### Implementations
 1. Hash tables
 2. Object oriented
