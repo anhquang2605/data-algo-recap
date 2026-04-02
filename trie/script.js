@@ -21,11 +21,14 @@ class Trie {
         let curretNode = this.root;
 
         for (let char of word) {
-            let newNode = new TrieNode();
+  
             if(!curretNode.children[char]) {
+                let newNode = new TrieNode();
                 curretNode.children[char] = newNode;
-            } 
-            curretNode = newNode;            
+                curretNode = newNode; 
+            } else {
+                curretNode = curretNode.children[char];            
+            }                  
         }
         curretNode.children["*"] = null;
     }
