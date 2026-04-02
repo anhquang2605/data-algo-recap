@@ -36,7 +36,7 @@ class Trie {
             if (key === "*") {
                 words.push(word);
             } else {
-                this.collectAllWords(currentNode.children[key], word + key, words);
+                this.collectAllWords(currentNode.children[key],  words, word + key);
             }
         }
         return words;
