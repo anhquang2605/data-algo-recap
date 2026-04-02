@@ -61,6 +61,28 @@ class Trie {
             this.keyPrint(node.children[key]);
         }
     }
+    findLongestPrefix(word) {
+        let currentNode = this.root;
+        let prefix = "";
+        for(let char of word) {
+            if (currentNode.children[char]) {
+                prefix += char;
+                currentNode = currentNode.children[char];
+            } else {
+            break;
+            }
+        }
+        return prefix;
+    }
+    autoCorrect(word) {
+        let longestPrefix = this.findLongestPrefix(word);
+        if (longestPrefix === "") {
+            return null;
+        } else {
+            return longestPrefix + this.autoComplete(longestPrefix)[0];
+        }
+
+    }
 }
 
 const trie = new Trie();
@@ -68,5 +90,9 @@ trie.insert("apple");
 trie.insert("app");
 trie.insert("ap");
 trie.insert("ape");
+trie.insert("add");
+trie.insert("addon");
 trie.keyPrint(trie.root);
 console.log(trie.collectAllWords());
+console.log(trie.autoComplete("ap"));
+console.log(trie.autoCorrect("ab"));
