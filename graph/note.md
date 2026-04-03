@@ -21,3 +21,5 @@
 1. can mean different things
 2. can mean to search a specific vertex
 3. but most important of all: if had access to one vertex of the graph, we must find another particular vertex that somehow connected to this vertex
+4. path: sequence of edges to get from one vertex to another
+5. use case: (1) search for particular vertex within connected graph. (2) to know if two vertices are connected. (3) to traverse 
