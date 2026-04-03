@@ -9,4 +9,16 @@ class Vertex{
         } 
         vertex.addAdjacent(this);
     }
+    DFS(vertex, visited = new Set()){
+        if(visited.has(vertex.value)){
+            return;
+        }
+        for(let adjacent of vertex.adjacencyList){
+            if(!visited.has(adjacent.value)){
+                visited.add(adjacent.value);
+                this.DFS(adjacent, visited);
+            } 
+        }
+
+    }
 }
