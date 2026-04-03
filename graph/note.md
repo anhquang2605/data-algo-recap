@@ -23,3 +23,8 @@
 3. but most important of all: if had access to one vertex of the graph, we must find another particular vertex that somehow connected to this vertex
 4. path: sequence of edges to get from one vertex to another
 5. use case: (1) search for particular vertex within connected graph. (2) to know if two vertices are connected. (3) to traverse 
+
+#### Depth first search
+1. search until exasuting all adjacent list then back out
+2. keys are to keep track of the vertices visisted so far (to avoid going in a circle)
+3. keep track of visisted vertices by using a hash table
