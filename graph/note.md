@@ -16,3 +16,8 @@
 ### Implementations
 1. Hash tables
 2. Object oriented
+
+### Searcj
+1. can mean different things
+2. can mean to search a specific vertex
+3. but most important of all: if had access to one vertex of the graph, we must find another particular vertex that somehow connected to this vertex
