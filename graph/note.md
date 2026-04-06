@@ -39,3 +39,5 @@
 
 ## Weighted graph
 1. extra weight value on each edge.
+
+## The shortest path problem and Djikstrar's Algorithm
