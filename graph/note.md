@@ -32,3 +32,6 @@
 #### Breadth first search
 1. BFS
 2. use queue istead of recursion
+
+#### graph search efficiency
+1. O(V + E) V: vertext, E:edge
