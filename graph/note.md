@@ -28,3 +28,7 @@
 1. search until exasuting all adjacent list then back out
 2. keys are to keep track of the vertices visisted so far (to avoid going in a circle)
 3. keep track of visisted vertices by using a hash table
+
+#### Breadth first search
+1. BFS
+2. use queue istead of recursion
