@@ -35,3 +35,7 @@
 
 #### graph search efficiency
 1. O(V + E) V: vertext, E:edge
+
+
+## Weighted graph
+1. extra weight value on each edge.
