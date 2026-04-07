@@ -42,7 +42,7 @@ const djikstra = (start, end) => {
         currentCheapestVertex = cheapestPreviousVertexTable[currentCheapestVertex];
     }
     cheapestPath.push(start.value);
-    return {cheapestPath, cheapeestPriceTable};
+    return cheapestPath.reverse();
 
 }
 const alanta = new WeightGraphVertex('Atlanta');
