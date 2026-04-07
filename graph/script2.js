@@ -32,7 +32,17 @@ const djikstra = (start, end) => {
                 }               
             }
         }
+        let cheapestToVisitVertext = unvisitedVertices.sort((a, b) => a.value - b.value)[0];
+        currentVertex = cheapestToVisitVertext;
     }
+    const cheapestPath = [];
+    let currentCheapestVertex = end.value;
+    while(currentCheapestVertex !== start.value){
+        cheapestPath.push(currentCheapestVertex);
+        currentCheapestVertex = cheapestPreviousVertexTable[currentCheapestVertex];
+    }
+    cheapestPath.push(start.value);
+    return {cheapestPath, cheapeestPriceTable};
 
 }
 const alanta = new WeightGraphVertex('Atlanta');
