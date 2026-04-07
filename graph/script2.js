@@ -9,6 +9,10 @@ class WeightGraphVertex{
         }
     }
 }
+const djikstra = (start, end) => {
+    const cheapeestPriceTable = {}; //storing the cheapest price to get from start to each vertex and beyond
+    const cheapestPreviousVertexTable = {};//storing the previous vertex for each cheapest price
+}
 const alanta = new WeightGraphVertex('Atlanta');
 const boston = new WeightGraphVertex('Boston');
 const chicago = new WeightGraphVertex('Chicago');
