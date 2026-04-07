@@ -41,3 +41,5 @@
 1. extra weight value on each edge.
 
 ## The shortest path problem and Djikstrar's Algorithm
+1. one hash table to store the cheapest the previous vertex that form the shortest paths from the chosen vertex
+2. one hash table to store the cheappest values for such path
