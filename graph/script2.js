@@ -13,8 +13,8 @@ const djikstra = (start, end) => {
     const cheapeestPriceTable = {}; //storing the cheapest price to get from start to each vertex and beyond
     const cheapestPreviousVertexTable = {};//storing the previous vertex for each cheapest price
     const visitedVertices = new Set();
-    const unvisitedVertices = [];
-    unvisitedVertices.push(start.value);
+    const unvisitedVertices = new Set();
+    unvisitedVertices.add(start.value);
     cheapeestPriceTable[start.value] = 0;
     let currentVertex = start;
     while(currentVertex){
@@ -24,7 +24,7 @@ const djikstra = (start, end) => {
         for(let adjacentVertex in adjacentVertices){
             let {vertex, weight} = adjacentVertices[adjacentVertex];
             if(!visitedVertices.has(vertex.value)){
-                unvisitedVertices.push(vertex);
+                unvisitedVertices.add(vertex);
                 const priceToAdjacentVertex = cheapeestPriceTable[currentVertex.value] + weight;
                 if(!cheapeestPriceTable[vertex] || priceToAdjacentVertex < cheapeestPriceTable[vertex]){
                     cheapeestPriceTable[vertex] = priceToAdjacentVertex;
@@ -32,7 +32,7 @@ const djikstra = (start, end) => {
                 }               
             }
         }
-        let cheapestToVisitVertext =cheapeestPriceTable[findCheapestPrice(cheapeestPriceTable)];
+        let cheapestToVisitVertext =cheapeestPriceTable[findCheapestPrice(cheapeestPriceTable, unvisitedVertices)];
         currentVertex = cheapestToVisitVertext;
     }
     const cheapestPath = [];
@@ -45,16 +45,23 @@ const djikstra = (start, end) => {
     return cheapestPath.reverse();
 
 }
-const findCheapestPrice = (map) => {
+const findCheapestPrice = (map, unvisitedVertices) => {
     const min = Infinity;
     const minKey = null;
     for(let key in map){
-        if(map[key] < min){
+        if(unvisitedVertices.has(key) && map[key] < min){
             min = map[key];
             minKey = key;
         }
     }
     return minKey;
+}
+function removeItemOnce(arr, value) {
+    const index = arr.indexOf(value);
+    if (index !== -1) {
+        arr.splice(index, 1); // Removes 1 element at the found index
+    }
+    return arr;
 }
 const alanta = new WeightGraphVertex('Atlanta');
 const boston = new WeightGraphVertex('Boston');
