@@ -32,7 +32,8 @@ const djikstra = (start, end) => {
                 }               
             }
         }
-        let cheapestToVisitVertext = unvisitedVertices.sort((a, b) => a.value - b.value)[0];
+        let cheapestPriceVisit
+        let cheapestToVisitVertext =cheapeestPriceTable[findCheapestPrice(cheapeestPriceTable)];
         currentVertex = cheapestToVisitVertext;
     }
     const cheapestPath = [];
@@ -44,6 +45,17 @@ const djikstra = (start, end) => {
     cheapestPath.push(start.value);
     return cheapestPath.reverse();
 
+}
+const findCheapestPrice = (map) => {
+    const min = Infinity;
+    const minKey = null;
+    for(let key in map){
+        if(map[key] < min){
+            min = map[key];
+            minKey = key;
+        }
+    }
+    return minKey;
 }
 const alanta = new WeightGraphVertex('Atlanta');
 const boston = new WeightGraphVertex('Boston');
