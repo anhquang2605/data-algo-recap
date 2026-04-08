@@ -1,29 +1,28 @@
 class WeightGraphVertex{
     constructor(value){
         this.value = value;
-        this.adjacencyList  = {};
+        this.adjacencyList  = new Map();
     }
     addAdjacent(vertex, weight){
-        if(!this.adjacencyList[vertex.value]){
-            this.adjacencyList[vertex.value] = weight;
+        if(!this.adjacencyList.has(vertex.value)){
+            this.adjacencyList.set(vertex.value, weight);
         }
     }
 }
 const djikstra = (start, end) => {
     const cheapeestPriceTable = {}; //storing the cheapest price to get from start to each vertex and beyond
     const cheapestPreviousVertexTable = {};//storing the previous vertex for each cheapest price
-    const visitedVertices = new Set();
+    const visitedVertices = {};
     const unvisitedVertices = new Set();
     unvisitedVertices.add(start.value);
     cheapeestPriceTable[start.value] = 0;
     let currentVertex = start;
     while(currentVertex){
-        visitedVertices.add(currentVertex.value);
+        visitedVertices[currentVertex.value] = true;
         unvisitedVertices.delete(currentVertex.value);
         const adjacentVertices = currentVertex.adjacencyList;
-        for(let adjacentVertex in adjacentVertices){
-            let {vertex, weight} = adjacentVertices[adjacentVertex];
-            if(!visitedVertices.has(vertex)){
+        for(const [vertex, weight] of adjacentVertices){
+            if(!visitedVertices[vertex]){
                 unvisitedVertices.add(vertex);
                 const priceToAdjacentVertex = cheapeestPriceTable[currentVertex.value] + weight;
                 if(!cheapeestPriceTable[vertex] || priceToAdjacentVertex < cheapeestPriceTable[vertex]){
@@ -46,8 +45,8 @@ const djikstra = (start, end) => {
 
 }
 const findCheapestPrice = (map, unvisitedVertices) => {
-    const min = Infinity;
-    const minKey = null;
+    let min = Infinity;
+    let minKey = null;
     for(let key in map){
         if(unvisitedVertices.has(key) && map[key] < min){
             min = map[key];
