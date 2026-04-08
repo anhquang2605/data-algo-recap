@@ -32,7 +32,6 @@ const djikstra = (start, end) => {
                 }               
             }
         }
-        let cheapestPriceVisit
         let cheapestToVisitVertext =cheapeestPriceTable[findCheapestPrice(cheapeestPriceTable)];
         currentVertex = cheapestToVisitVertext;
     }
@@ -71,3 +70,5 @@ chicago.addAdjacent(elPaso, 80);
 denver.addAdjacent(chicago, 40);
 denver.addAdjacent(elPaso, 140);
 elPaso.addAdjacent(boston, 100);
+
+console.log(djikstra(alanta, elPaso));
