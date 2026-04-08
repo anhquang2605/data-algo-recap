@@ -23,7 +23,7 @@ const djikstra = (start, end) => {
         const adjacentVertices = currentVertex.adjacencyList;
         for(let adjacentVertex in adjacentVertices){
             let {vertex, weight} = adjacentVertices[adjacentVertex];
-            if(!visitedVertices.has(vertex.value)){
+            if(!visitedVertices.has(vertex)){
                 unvisitedVertices.add(vertex);
                 const priceToAdjacentVertex = cheapeestPriceTable[currentVertex.value] + weight;
                 if(!cheapeestPriceTable[vertex] || priceToAdjacentVertex < cheapeestPriceTable[vertex]){
