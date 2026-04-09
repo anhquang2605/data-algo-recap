@@ -21,7 +21,8 @@ const djikstra = (start, end) => {
         visitedVertices[currentVertex.value] = true;
         unvisitedVertices.delete(currentVertex.value);
         const adjacentVertices = currentVertex.adjacencyList;
-        for(const [vertex, weight] of adjacentVertices){
+        if(adjacentVertices){
+             for(const [vertex, weight] of adjacentVertices){
             if(!visitedVertices[vertex]){
                 unvisitedVertices.add(vertex);
                 const priceToAdjacentVertex = cheapeestPriceTable[currentVertex.value] + weight;
@@ -30,7 +31,9 @@ const djikstra = (start, end) => {
                     cheapestPreviousVertexTable[vertex] = currentVertex.value;
                 }               
             }
+         }
         }
+       
         let cheapestToVisitVertext =cheapeestPriceTable[findCheapestPrice(cheapeestPriceTable, unvisitedVertices)];
         currentVertex = cheapestToVisitVertext;
     }
