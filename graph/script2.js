@@ -36,12 +36,13 @@ const djikstra = (start, end) => {
         currentVertex = cheapestToVisitVertext;
     }
     const cheapestPath = [];
-    let currentCheapestVertex = end.value;
-    while(currentCheapestVertex !== start.value){
+    let currentCheapestVertex = end;
+    while(currentCheapestVertex.value  !== start.value){
+        console.log(cheapestPath);
         cheapestPath.push(currentCheapestVertex);
         currentCheapestVertex = cheapestPreviousVertexTable[currentCheapestVertex];
     }
-    cheapestPath.push(start.value);
+    cheapestPath.push(start);
     return cheapestPath.reverse();
 
 }
