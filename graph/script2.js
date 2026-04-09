@@ -1,11 +1,11 @@
 class WeightGraphVertex{
     constructor(value){
         this.value = value;
-        this.adjacencyList  = new Map();
+        this.adjacencyList  = new Map([]);
     }
     addAdjacent(vertex, weight){
-        if(!this.adjacencyList.has(vertex.value)){
-            this.adjacencyList.set(vertex.value, weight);
+        if(!this.adjacencyList.has(vertex)){
+            this.adjacencyList.set(vertex, weight);
         }
     }
 }
@@ -13,27 +13,25 @@ const djikstra = (start, end) => {
     const cheapeestPriceTable = {}; //storing the cheapest price to get from start to each vertex and beyond
     const cheapestPreviousVertexTable = {};//storing the previous vertex for each cheapest price
     const visitedVertices = {};
-    const unvisitedVertices = new Set();
-    unvisitedVertices.add(start.value);
+    const unvisitedVertices = {};
+    unvisitedVertices[start] = true;
     cheapeestPriceTable[start.value] = 0;
     let currentVertex = start;
+    //issue right now, the current vertex need to be an actual vertex. at the end of the while loop, we need to asign the vertex node not the vertex value to the current vertex.
     while(currentVertex){
-        visitedVertices[currentVertex.value] = true;
-        unvisitedVertices.delete(currentVertex.value);
+        visitedVertices[currentVertex] = true;
+        delete unvisitedVertices[currentVertex];
         const adjacentVertices = currentVertex.adjacencyList;
-        if(adjacentVertices){
-             for(const [vertex, weight] of adjacentVertices){
+        for(const [vertex, weight] of adjacentVertices){
             if(!visitedVertices[vertex]){
-                unvisitedVertices.add(vertex);
+                unvisitedVertices[vertex] = vertex;
                 const priceToAdjacentVertex = cheapeestPriceTable[currentVertex.value] + weight;
                 if(!cheapeestPriceTable[vertex] || priceToAdjacentVertex < cheapeestPriceTable[vertex]){
                     cheapeestPriceTable[vertex] = priceToAdjacentVertex;
                     cheapestPreviousVertexTable[vertex] = currentVertex.value;
                 }               
             }
-         }
         }
-       
         let cheapestToVisitVertext =cheapeestPriceTable[findCheapestPrice(cheapeestPriceTable, unvisitedVertices)];
         currentVertex = cheapestToVisitVertext;
     }
@@ -51,7 +49,7 @@ const findCheapestPrice = (map, unvisitedVertices) => {
     let min = Infinity;
     let minKey = null;
     for(let key in map){
-        if(unvisitedVertices.has(key) && map[key] < min){
+        if(unvisitedVertices[key] && map[key] < min){
             min = map[key];
             minKey = key;
         }
