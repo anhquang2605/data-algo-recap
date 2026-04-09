@@ -1,7 +1,7 @@
 class WeightGraphVertex{
     constructor(value){
         this.value = value;
-        this.adjacencyList  = new Map([]);
+        this.adjacencyList  = new Map();
     }
     addAdjacent(vertex, weight){
         if(!this.adjacencyList.has(vertex.value)){
@@ -21,7 +21,7 @@ const djikstra = (start, end) => {
         visitedVertices[currentVertex.value] = true;
         unvisitedVertices.delete(currentVertex.value);
         const adjacentVertices = currentVertex.adjacencyList;
-        for(const [vertex, weight] of adjacentVertices.entries()){
+        for(const [vertex, weight] of adjacentVertices){
             if(!visitedVertices[vertex]){
                 unvisitedVertices.add(vertex);
                 const priceToAdjacentVertex = cheapeestPriceTable[currentVertex.value] + weight;
