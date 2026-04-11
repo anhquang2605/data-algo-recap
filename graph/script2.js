@@ -33,7 +33,7 @@ const djikstra = (start, end) => {
                 }               
             }
         }
-        let cheapestToVisitVertext =cheapeestPriceTable[findCheapestPrice(cheapeestPriceTable, unvisitedVertices)];
+        let cheapestToVisitVertext =findCheapestPrice(cheapeestPriceTable, unvisitedVertices);
         currentVertex = cheapestToVisitVertext;
     }
     const cheapestPath = [];
@@ -49,14 +49,16 @@ const djikstra = (start, end) => {
 }
 const findCheapestPrice = (map, unvisitedVertices) => {
     let min = Infinity;
-    let minKey = null;
+    let minItem = null;
     for(let key in map){
-        if(unvisitedVertices[key] && map[key] < min){
-            min = map[key];
-            minKey = key;
+        let item = unvisitedVertices[key];
+        let price = map[key];
+        if(item && price < min){
+            min = price;
+            minItem = item;
         }
     }
-    return minKey;
+    return minItem;
 }
 function removeItemOnce(arr, value) {
     const index = arr.indexOf(value);
