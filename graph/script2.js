@@ -74,7 +74,7 @@ const denver = new WeightGraphVertex('Denver');
 const elPaso = new WeightGraphVertex('El Paso');
 
 alanta.addAdjacent(boston, 100);
-alanta.addAdjacent(chicago, 160);
+alanta.addAdjacent(denver, 160);
 boston.addAdjacent(chicago, 120);
 boston.addAdjacent(denver, 180);
 chicago.addAdjacent(elPaso, 80);
