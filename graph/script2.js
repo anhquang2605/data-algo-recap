@@ -14,21 +14,22 @@ const djikstra = (start, end) => {
     const cheapestPreviousVertexTable = {};//storing the previous vertex for each cheapest price
     const visitedVertices = {};
     const unvisitedVertices = {};
-    unvisitedVertices[start] = true;
+    unvisitedVertices[start.value] = start;
     cheapeestPriceTable[start.value] = 0;
     let currentVertex = start;
     //issue right now, the current vertex need to be an actual vertex. at the end of the while loop, we need to asign the vertex node not the vertex value to the current vertex.
     while(currentVertex){
-        visitedVertices[currentVertex] = true;
-        delete unvisitedVertices[currentVertex];
+        visitedVertices[currentVertex.value] = currentVertex;
+        delete unvisitedVertices[currentVertex.value];
         const adjacentVertices = currentVertex.adjacencyList;
         for(const [vertex, weight] of adjacentVertices){
-            if(!visitedVertices[vertex]){
-                unvisitedVertices[vertex] = vertex;
+            const vertexValue = vertex.value;
+            if(!visitedVertices[vertexValue]){
+                unvisitedVertices[vertexValue] = vertex;
                 const priceToAdjacentVertex = cheapeestPriceTable[currentVertex.value] + weight;
-                if(!cheapeestPriceTable[vertex] || priceToAdjacentVertex < cheapeestPriceTable[vertex]){
-                    cheapeestPriceTable[vertex] = priceToAdjacentVertex;
-                    cheapestPreviousVertexTable[vertex] = currentVertex.value;
+                if(!cheapeestPriceTable[vertexValue] || priceToAdjacentVertex < cheapeestPriceTable[vertexValue]){
+                    cheapeestPriceTable[vertexValue] = priceToAdjacentVertex;
+                    cheapestPreviousVertexTable[vertexValue] = currentVertex.value;
                 }               
             }
         }
