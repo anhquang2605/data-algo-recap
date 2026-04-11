@@ -39,11 +39,10 @@ const djikstra = (start, end) => {
     const cheapestPath = [];
     let currentCheapestVertex = end;
     while(currentCheapestVertex.value  !== start.value){
-        console.log(cheapestPath);
-        cheapestPath.push(currentCheapestVertex);
-        currentCheapestVertex = cheapestPreviousVertexTable[currentCheapestVertex];
+        cheapestPath.push(currentCheapestVertex.value);
+        currentCheapestVertex = cheapestPreviousVertexTable[currentCheapestVertex.value];
     }
-    cheapestPath.push(start);
+    cheapestPath.push(start.value);
     return cheapestPath.reverse();
 
 }
