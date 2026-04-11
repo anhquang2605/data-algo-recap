@@ -29,7 +29,7 @@ const djikstra = (start, end) => {
                 const priceToAdjacentVertex = cheapeestPriceTable[currentVertex.value] + weight;
                 if(!cheapeestPriceTable[vertexValue] || priceToAdjacentVertex < cheapeestPriceTable[vertexValue]){
                     cheapeestPriceTable[vertexValue] = priceToAdjacentVertex;
-                    cheapestPreviousVertexTable[vertexValue] = currentVertex.value;
+                    cheapestPreviousVertexTable[vertexValue] = currentVertex;
                 }               
             }
         }
@@ -38,6 +38,7 @@ const djikstra = (start, end) => {
     }
     const cheapestPath = [];
     let currentCheapestVertex = end;
+    console.log(cheapestPreviousVertexTable);
     while(currentCheapestVertex.value  !== start.value){
         cheapestPath.push(currentCheapestVertex.value);
         currentCheapestVertex = cheapestPreviousVertexTable[currentCheapestVertex.value];
