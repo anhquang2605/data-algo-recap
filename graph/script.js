@@ -119,3 +119,33 @@ function DFS(vertex, visited = new Set()) {
         }
         return null;
     }
+
+const Idris = new Vertex('Idris');
+const Kamil = new Vertex('Kamil');
+const Talia = new Vertex('Talia');
+const Ken = new Vertex('Ken');
+const Lina = new Vertex('Lina');
+const Marco = new Vertex('Marco');
+const Sasha = new Vertex('Sasha');
+Idris.addAdjacent(Kamil);
+Idris.addAdjacent(Talia);
+
+Kamil.addAdjacent(Idris);
+Kamil.addAdjacent(Lina);
+
+Talia.addAdjacent(Idris);
+Talia.addAdjacent(Ken);
+
+Ken.addAdjacent(Talia);
+Ken.addAdjacent(Marco);
+
+Lina.addAdjacent(Kamil);
+Lina.addAdjacent(Sasha);
+
+Marco.addAdjacent(Ken);
+Marco.addAdjacent(Sasha);
+
+Sasha.addAdjacent(Lina);
+Sasha.addAdjacent(Marco);
+
+console.log(BFSShortestPathBetweenTwoVertices(Idris, Lina));
