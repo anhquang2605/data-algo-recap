@@ -25,7 +25,8 @@ class Vertex{
         vertex.addAdjacent(this);
     }
     
-    DFS(vertex, visited = new Set()){
+}
+function DFS(vertex, visited = new Set()) {
         if(visited.has(vertex.value)){
             return;
         }
@@ -38,7 +39,7 @@ class Vertex{
         }
     }
     //to visist all the adjacent vertices first of current vertex
-    BFS(vertex){
+   function BFS(vertex)  {
         let visited = new Set();
         let queue = new Queue();
         queue.enqueue(vertex);
@@ -53,7 +54,7 @@ class Vertex{
             }
         }
     }
-    BFSValue(value, vertex){
+    function BFSValue(value, vertex) {
         let visited = new Set();
         let queue = new Queue();
         let level = 0;
@@ -74,7 +75,7 @@ class Vertex{
         }
         return null;
     }
-    BFSShortestPathBetweenTwoVertices(start, end){
+    function BFSShortestPathBetweenTwoVertices(start, end)  {
         let visited = new Set();
         let queue = new Queue();
         let previousVertexTable = {};
@@ -102,45 +103,7 @@ class Vertex{
         }
         return path.reverse();
     }
-    shortestPathBetweenTwoVertices(start, end){
-
-        const cheapeestPriceTable = {}; //storing the cheapest price to get from start to each vertex and beyond
-        const cheapestPreviousVertexTable = {};//storing the previous vertex for each cheapest price
-        const visitedVertices = {};
-        const unvisitedVertices = {};
-        unvisitedVertices[start.value] = start;
-        cheapeestPriceTable[start.value] = 0;
-        let currentVertex = start;
-        //issue right now, the current vertex need to be an actual vertex. at the end of the while loop, we need to asign the vertex node not the vertex value to the current vertex.
-        while(currentVertex){
-            visitedVertices[currentVertex.value] = currentVertex;
-            delete unvisitedVertices[currentVertex.value];
-            const adjacentVertices = currentVertex.adjacencyList;
-            for(const [vertex] of adjacentVertices){
-                const vertexValue = vertex.value;
-                if(!visitedVertices[vertexValue]){
-                    unvisitedVertices[vertexValue] = vertex;
-                    const priceToAdjacentVertex = cheapeestPriceTable[currentVertex.value] + 1;
-                    if(!cheapeestPriceTable[vertexValue] || priceToAdjacentVertex < cheapeestPriceTable[vertexValue]){
-                        cheapeestPriceTable[vertexValue] = priceToAdjacentVertex;
-                        cheapestPreviousVertexTable[vertexValue] = currentVertex;
-                    }               
-                }
-            }
-            let cheapestToVisitVertext =findCheapestPrice(cheapeestPriceTable, unvisitedVertices);
-            currentVertex = cheapestToVisitVertext;
-        }
-        const cheapestPath = [];
-        let currentCheapestVertex = end;
-        console.log(cheapestPreviousVertexTable);
-        while(currentCheapestVertex.value  !== start.value){
-            cheapestPath.push(currentCheapestVertex.value);
-            currentCheapestVertex = cheapestPreviousVertexTable[currentCheapestVertex.value];
-        }
-        cheapestPath.push(start.value);
-        return cheapestPath.reverse();
-    }
-    DFSValue(value, vertex, visited = new Set(),){
+    function DFSValue(value, vertex, visited = new Set()) {
         if(vertex.value === value){
             return vertex;
         }
@@ -156,4 +119,3 @@ class Vertex{
         }
         return null;
     }
-}
