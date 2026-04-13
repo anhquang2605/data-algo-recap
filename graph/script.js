@@ -53,6 +53,25 @@ class Vertex{
             }
         }
     }
+    BFSValue(value, vertex){
+        let visited = new Set();
+        let queue = new Queue();
+        queue.enqueue(vertex);
+        visited.add(vertex.value);
+        while(queue.items.length > 0){
+            let current = queue.dequeue();
+            if(current.value === value){
+                return current;
+            }
+            for(let adjacent of current.adjacencyList){
+                if(!visited.has(adjacent.value)){
+                    visited.add(adjacent.value);
+                    queue.enqueue(adjacent);
+                }
+            }
+        }
+        return null;
+    }
     DFSValue(value, vertex, visited = new Set(),){
         if(vertex.value === value){
             return vertex;
