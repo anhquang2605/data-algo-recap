@@ -32,6 +32,7 @@
 #### Breadth first search
 1. BFS
 2. use queue istead of recursion
+3. To find shortest path out of a maze
 
 #### graph search efficiency
 1. O(V + E) V: vertext, E:edge
@@ -44,3 +45,4 @@
 1. one hash table to store the cheapest the previous vertex that form the shortest paths from the chosen vertex  
 2. one hash table to store the cheappest values for such paths so far
 3. note that we using the coresponding vertex value as a key for both table so we match them accordingly
+

@@ -19,10 +19,7 @@ class Vertex{
         this.adjacencyList  = [];
     }
     addAdjacent(vertex){
-        if(!this.adjacencyList.includes(vertex)){
-            this.adjacencyList.push(vertex);
-        } 
-        vertex.addAdjacent(this);
+        this.adjacencyList.push(vertex);
     }
     
 }
@@ -97,10 +94,11 @@ function DFS(vertex, visited = new Set()) {
         }
         const path = [];
         let currentVertex = end;
-        while(currentVertex){
+        while(currentVertex.value !== start.value){
             path.push(currentVertex.value);
             currentVertex = previousVertexTable[currentVertex.value];
         }
+        path.push(start.value);
         return path.reverse();
     }
     function DFSValue(value, vertex, visited = new Set()) {
@@ -148,4 +146,4 @@ Marco.addAdjacent(Sasha);
 Sasha.addAdjacent(Lina);
 Sasha.addAdjacent(Marco);
 
-console.log(BFSShortestPathBetweenTwoVertices(Idris, Lina));
+console.log(BFSShortestPathBetweenTwoVertices(Idris, Kamil));
