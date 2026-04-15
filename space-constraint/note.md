@@ -4,3 +4,5 @@ with N data, how many unit of memory will the algorithm consume?
 2. We only consider if the algorithm is creating new data for the efficiency sake. Some will include the original input, but we need to clarify that
 3. some times, you have to make a trade off, algo can be inefficient in time complex but efficient in space complex and vice versa.
 4. sort array first then compare the two element next to each other to tell if there is duplicate
+5. recursion might have a hidden cost. while it looks like note new data is created, the use of recusion involve the call stacks.
+6. recusion is not good when we are dealing with large number of data
