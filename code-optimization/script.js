@@ -30,4 +30,20 @@ const swapArraySum = (arr1, arr2) => {
         sum1 += arr1[i];
         hash[arr1[i]] = true;
     }
+    let sum2 = 0;
+    for (let i = 0; i < arr2.length; i++) {
+        sum2 += arr2[i];
+    }
+    const diff = sum1 - sum2;
+    if (diff % 2 !== 0) {
+        return [];
+    } 
+    const target = diff / 2;
+    for (let i = 0; i < arr2.length; i++) {
+        const num = arr2[i];
+        if (hash[num + target]) {
+            return [num + target, num];
+        }
+    }
+    return [];
 }
