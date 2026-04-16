@@ -23,3 +23,11 @@ const coinGameWinner2 = (coins, currentPlayer) => {
         return 'Player 1';
     }
 }
+const swapArraySum = (arr1, arr2) => {
+    let sum1 = 0;
+    let hash = {};
+    for (let i = 0; i < arr1.length; i++) {
+        sum1 += arr1[i];
+        hash[arr1[i]] = true;
+    }
+}
