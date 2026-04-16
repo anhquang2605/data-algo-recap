@@ -15,3 +15,11 @@ const coinGameWinner = (coins, currentPlayer) => {
     }
 
 }
+
+const coinGameWinner2 = (coins, currentPlayer) => {
+    if( coins % 3 === 0) {
+        return 'Player 2';
+    } else {
+        return 'Player 1';
+    }
+}
