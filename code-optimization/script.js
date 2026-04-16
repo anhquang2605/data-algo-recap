@@ -28,7 +28,7 @@ const swapArraySum = (arr1, arr2) => {
     let hash = {};
     for (let i = 0; i < arr1.length; i++) {
         sum1 += arr1[i];
-        hash[arr1[i]] = true;
+        hash[arr1[i]] = i;
     }
     let sum2 = 0;
     for (let i = 0; i < arr2.length; i++) {
@@ -47,3 +47,6 @@ const swapArraySum = (arr1, arr2) => {
     }
     return [];
 }
+const arr1 = [1, 2, 5];
+const arr2 = [2, 4];
+console.log(swapArraySum(arr1, arr2));
