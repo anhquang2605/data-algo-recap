@@ -68,3 +68,25 @@ const sport2 = [
     {first: 'Jane', last: 'Doe'},
 ];
 console.log(playersPlayMoreThanTwoSports(sport1, sport2));
+
+const findMissingNumber = (arr) => {
+   let i = 0;
+   let j = 1;
+   if(arr[0] !== 0) {
+       return 0;
+   }
+    while (j < arr.length) {
+        let current = arr[i];
+        let next = arr[j];
+        if (current + 1 === next) {
+            i++;
+            j++;
+        } else {
+            return current + 1;
+        }
+    } 
+}
+const arr2 = [1, 2, 3, 5, 6];
+const arr3 = [0, 1, 2, 3, 4, 6];
+console.log(findMissingNumber(arr2));
+console.log(findMissingNumber(arr3));
