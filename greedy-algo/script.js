@@ -35,3 +35,36 @@ const stockPredictor = (prices) => {
 
 const prices = [5, 10, 4, 6, 8];
 console.log(stockPredictor(prices));
+
+const playersPlayMoreThanTwoSports = (sport1, sport2) => {
+    const hashMap = {};
+    const result = [];
+    for (let i = 0; i < sport1.length; i++) {
+        const thePlayer = sport1[i];
+        const playerName = thePlayer.first + thePlayer.last;
+        hashMap[playerName] = 1;
+    }
+    for (let i = 0; i < sport2.length; i++) {
+        const thePlayer = sport2[i];
+        const playerName = thePlayer.first + thePlayer.last;
+        if (hashMap[playerName]) {
+            hashMap[playerName]++;
+            result.push(thePlayer);
+        }
+    }
+    
+    return result;
+}
+const sport1 = [
+    {first: 'John', last: 'Smith'},
+    {first: 'Jane', last: 'Doe'},
+    {first: 'John', last: 'Doe'},
+    {first: 'Jane', last: 'Smith'},
+    {first: 'John', last: 'Doe'},
+    {first: 'Jane', last: 'Doe'},
+];
+const sport2 = [
+    {first: 'John', last: 'Smith'},
+    {first: 'Jane', last: 'Doe'},
+];
+console.log(playersPlayMoreThanTwoSports(sport1, sport2));
