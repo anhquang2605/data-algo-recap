@@ -87,6 +87,23 @@ const findMissingNumber = (arr) => {
     } 
 }
 const arr2 = [1, 2, 3, 5, 6];
-const arr3 = [0, 1, 2, 3, 4, 6];
+const arr3 = [0, 1, 2, 3, 4, 5, 6];
 console.log(findMissingNumber(arr2));
 console.log(findMissingNumber(arr3));
+const greatestProfitStock = (prices) => {
+    let minPrice = prices[0];
+    let greatestProfit = 0;
+    let currentProfit = 0;
+    for (let i = 1; i < prices.length; i++) {
+        currentProfit = prices[i] - minPrice;
+        if (currentProfit > greatestProfit) {
+            greatestProfit = currentProfit;
+        }
+        if (prices[i] < minPrice) {
+            minPrice = prices[i];
+        }
+    }
+    return greatestProfit;
+}
+const stockPrices = [10, 7, 5, 2, 8, 11, 9];
+console.log(greatestProfitStock(stockPrices));
