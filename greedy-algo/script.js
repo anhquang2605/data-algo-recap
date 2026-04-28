@@ -107,10 +107,16 @@ const greatestProfitStock = (prices) => {
 }
 const stockPrices = [10, 7, 5, 2, 8, 11, 9];
 console.log(greatestProfitStock(stockPrices));
-const findGreatestQuotient = (arr) => {
-    let greatestQuotient = 0;
+const findGreatestProduct = (arr) => {
+    let greatestProduct = 0;
     for (let i = 0; i < arr.length; i++) {
-
+        for (let j = i + 1; j < arr.length; j++) {
+            let product = arr[i] * arr[j];
+            if (product > greatestProduct) {
+                greatestProduct = product;
+            }
+        }
     }
+    return greatestProduct;
 }
 const arr4 = [1, 4, -5, -8 , 2];
