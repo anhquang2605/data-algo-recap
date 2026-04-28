@@ -147,6 +147,11 @@ const sortTempReading = (temps) => {
     
     for (let i = 0; i < temps.length; i++) {
         let current = temps[i];
+        if ( current < 98 && current >= 97) {
+            if (count[current]) {
+                
+            }
+        }
         
     }
 }
