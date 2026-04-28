@@ -147,7 +147,7 @@ const sortTempReading = (temps) => {
     
     for (let i = 0; i < temps.length; i++) {
         let current = temps[i];
-
+        
     }
 }
 const arr4 = [1, 4, -5, -8 , 2];
