@@ -119,4 +119,27 @@ const findGreatestProduct = (arr) => {
     }
     return greatestProduct;
 }
+const findGreatestProductOptimized = (arr) => {
+    let greatestProduct = 0;
+    let greatestNum = 0;
+    let secondGreatestNum = 0;
+    let smallestNum = 0;
+    let secondSmallestNum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let current = arr[i];
+        if (current > greatestNum) {
+            secondGreatestNum = greatestNum;
+            greatestNum = current;
+        } else if (current > secondGreatestNum) {
+            secondGreatestNum = current;
+        } else if (current < smallestNum) {
+            secondSmallestNum = smallestNum;
+            smallestNum = current;
+        } else if (current < secondSmallestNum) {
+            secondSmallestNum = current;
+        }
+    }
+    greatestProduct = Math.max(greatestNum * secondGreatestNum, smallestNum * secondSmallestNum);
+    return greatestProduct;
+}
 const arr4 = [1, 4, -5, -8 , 2];
