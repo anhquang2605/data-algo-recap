@@ -150,7 +150,6 @@ const sortTempReading = (temps) => {
         let current = temps[i];
      
         let diff = Math.round((current - 97) * 10);
-           console.log(diff);
         if(maxDiff < diff){
             maxDiff = diff;
         }
@@ -161,7 +160,6 @@ const sortTempReading = (temps) => {
         }
         
     }
-    console.log(tempStore);
     for(let i = 0; i <= maxDiff; i += 1){
         let currentCount = tempStore[i];
         if(currentCount){
