@@ -148,7 +148,9 @@ const sortTempReading = (temps) => {
     let result = [];
     for (let i = 0; i < temps.length; i++) {
         let current = temps[i];
-        let diff = current - 97;
+     
+        let diff = Math.round((current - 97) * 10);
+           console.log(diff);
         if(maxDiff < diff){
             maxDiff = diff;
         }
@@ -159,11 +161,12 @@ const sortTempReading = (temps) => {
         }
         
     }
+    console.log(tempStore);
     for(let i = 0; i <= maxDiff; i += 1){
-        let currentCount = tempStore[maxDiff];
+        let currentCount = tempStore[i];
         if(currentCount){
             for (let j = 0; j < currentCount; j += 1){
-                result.push(97 + i);
+                result.push(97 +  i / 10);
             }
         }
     }
@@ -171,5 +174,6 @@ const sortTempReading = (temps) => {
 }
 const arr4 = [1, 4, -5, -8 , 2];
 
-const temp = [97.0, 99.0, 98.0 , 99.1, 98.9, 97.9, 98.1, 97.2]; //range from 97.0 to 99.0
+const temp = [97.0, 99.0, 98.0 , 99.0, 98.9, 97.9, 98.1, 97.2]; //range from 97.0 to 99.0
 
+console.log(sortTempReading(temp));
