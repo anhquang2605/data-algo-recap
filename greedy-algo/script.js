@@ -143,14 +143,14 @@ const findGreatestProductOptimized = (arr) => {
     return greatestProduct;
 }
 const sortTempReading = (temps) => {
-    let count = {};
-    
+    let tempStore = new Array(20) 
     for (let i = 0; i < temps.length; i++) {
         let current = temps[i];
-        if ( current < 98 && current >= 97) {
-            if (count[current]) {
-                
-            }
+        let diff = current - 97;
+        if(tempStore[diff]){
+            tempStore[diff] += 1;
+        } else {
+            tempStore[diff] = 1;
         }
         
     }
