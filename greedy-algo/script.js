@@ -186,6 +186,27 @@ const longestConsecutiveSequence = (arr) => {
     } 
     return longestSequence;
 }
+//need to beat O(nlogn)
+const longestConsecutiveSequenceOptimized = (arr) => {
+    let longestSequence = 1;
+    const hashMap = {};
+    for(let i = 0; i < arr.length; i++){
+        hashMap[arr[i]] = true;
+    }
+    for(let i = 0; i < arr.length; i++){
+        let current = arr[i];
+        if(!hashMap[current - 1]){
+            let next = current + 1;
+            let currentSequence = 1;
+            while(hashMap[next]){
+                currentSequence += 1;
+                next += 1;
+            }
+            longestSequence = Math.max(longestSequence, currentSequence);
+        }
+    }
+    return longestSequence;
+}
 
 const arr4 = [1, 4, -5, -8 , 2];
 
