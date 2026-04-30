@@ -171,7 +171,21 @@ const sortTempReading = (temps) => {
     return result;
 }
 const longestConsecutiveSequence = (arr) => {
+    let longestSequence = [];
     
+    //after sorting
+    longestSequence.push(arr[0]);
+    for(let i = 0; i < arr.length; i++){
+        let current = arr[i];
+        let next = arr[i + 1];
+        if(current + 1 === next){
+            longestConsecutiveSequence.push(next);
+        }
+    }
+    if (longestSequence.length < 2) {
+        return [];
+    } 
+    return longestSequence;
 }
 
 const arr4 = [1, 4, -5, -8 , 2];
